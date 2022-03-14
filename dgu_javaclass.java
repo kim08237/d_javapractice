@@ -50,6 +50,7 @@ public class PiCircle {							// 클래스이름이니까 대문자로 시작
 	}
 }
 
+
 ****0314 Scanner****
 import java.util.Scanner;
 
@@ -59,16 +60,16 @@ public class Cls_ScannerTest {
 	
 		System.out.println("이름, 나이, 체중, 독신 여부를 입력하세요.");
 		
-		Scanner myScanner;
+		Scanner myScanner;				//스캐너 지정
 		String mName;
 		int mAge;
 		double mWeight;
 		boolean mSingle;
 		
 		
-		myScanner = new Scanner(System.in);
-		System.out.print("이름을 입력하세요: ");
-		mName = myScanner.next();
+		myScanner = new Scanner(System.in);		//스캐너 이름 지정
+		System.out.print("이름을 입력하세요: ");	 
+		mName = myScanner.next();			// . 앞에 스캐너 이름 써줘야 해
 		
 		System.out.print("나이를 입력하세요: ");
 		mAge = myScanner.nextInt();
@@ -88,4 +89,30 @@ public class Cls_ScannerTest {
 		myScanner.close();		//scanner 했으면 꼭 close 해야 해
 	}
 
+}
+
+****0314 홀짝 ****
+import java.util.Scanner;
+
+public class Cls_OddEven {
+
+	public static void main(String args[]) {
+		
+	System.out.print("정수를 입력하세요.: ");
+	
+	Scanner oddScanner;
+	int number;
+	
+	oddScanner = new Scanner(System.in);
+	number = oddScanner.nextInt();
+	
+	if (number%2 == 0) {
+		System.out.print(number + "는(은) 짝수입니다.");
+	}
+	else {
+		System.out.print("홀수입니다.");
+	}
+	
+	oddScanner.close();
+	}
 }
