@@ -16,6 +16,7 @@ overloading 시험문제다
     
 클래스는 첫문자 대문자로시작. 변수/메소드는 시작은 소문자 첫단어 이후 각 단어의 첫먼쨰문자 대문자로
 
+셤문제)) 생성자의 특징 세가지를 쓰시오
 ****0307****
 public class FirstClass {
 
@@ -31,7 +32,7 @@ public class FirstClass {
 }
 
 
-****0310****
+****0310 원의 넓이 구하기****
 package ClassPi;
 
 public class PiCircle {							// 클래스이름이니까 대문자로 시작
@@ -47,4 +48,44 @@ public class PiCircle {							// 클래스이름이니까 대문자로 시작
 												//실수*정수 연산은 실수로 계산됨
 		System.out.println("반지름이 " + iRadius + "인 원의 면적은 "+ dCircleArea);
 	}
+}
+
+****0314 Scanner****
+import java.util.Scanner;
+
+public class Cls_ScannerTest {
+
+	public static void main(String args[]) {
+	
+		System.out.println("이름, 나이, 체중, 독신 여부를 입력하세요.");
+		
+		Scanner myScanner;
+		String mName;
+		int mAge;
+		double mWeight;
+		boolean mSingle;
+		
+		
+		myScanner = new Scanner(System.in);
+		System.out.print("이름을 입력하세요: ");
+		mName = myScanner.next();
+		
+		System.out.print("나이를 입력하세요: ");
+		mAge = myScanner.nextInt();
+		
+		System.out.print("체중을 입력하세요: ");
+		mWeight = myScanner.nextDouble();
+		
+		System.out.print("독신 여부를 입력하세요(True/False로 입력): ");
+		mSingle = myScanner.nextBoolean();
+		
+		
+		System.out.print("이름은 " + mName + ", ");
+		System.out.print("나이는 " + mAge + "세, ");
+		System.out.print("체중은 " + mWeight + "kg, ");
+		System.out.print("독신 여부는 " + mSingle + "입니다. ");
+		
+		myScanner.close();
+	}
+
 }
