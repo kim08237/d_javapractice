@@ -85,7 +85,7 @@ public class Cls_ScannerTest {
 		System.out.print("체중은 " + mWeight + "kg, ");
 		System.out.print("독신 여부는 " + mSingle + "입니다. ");
 		
-		myScanner.close();
+		myScanner.close();		//scanner 했으면 꼭 close 해야 해
 	}
 
 }
