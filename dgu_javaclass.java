@@ -54,7 +54,7 @@ public class PiCircle {							// 클래스이름이니까 대문자로 시작
 ****0314 Scanner****
 import java.util.Scanner;
 
-public class Cls_ScannerTest {
+public class Practice {
 
 	public static void main(String args[]) {
 	
@@ -69,8 +69,8 @@ public class Cls_ScannerTest {
 		
 		myScanner = new Scanner(System.in);		//스캐너 이름 지정
 		System.out.print("이름을 입력하세요: ");	 
-		mName = myScanner.next();			// . 앞에 스캐너 이름 써줘야 해
-		
+		mName = myScanner.nextLine();			// . 앞에 스캐너 이름 써줘야 해
+							//띄어쓰기까지 입력받는거
 		System.out.print("나이를 입력하세요: ");
 		mAge = myScanner.nextInt();
 		
