@@ -98,21 +98,23 @@ public class Cls_OddEven {
 
 	public static void main(String args[]) {
 		
-	System.out.print("정수를 입력하세요.: ");
+	System.out.print("정수를 입력하세요: ");
 	
 	Scanner oddScanner;
-	int number;
+	int number, module;				//if문에 number%2==0 하지말고 나머지 변수를 따로 지정하자
 	
 	oddScanner = new Scanner(System.in);
 	number = oddScanner.nextInt();
 	
-	if (number%2 == 0) {
+	module = number%2;
+	
+	if (module == 0) {				//조건식에 연산식 넣지 말자!!위에처럼 변수 따로 지정
 		System.out.print(number + "는(은) 짝수입니다.");
-	}
-	else {
-		System.out.print("홀수입니다.");
+	} else {
+		System.out.print(number+ "는(은) 홀수입니다.");
 	}
 	
 	oddScanner.close();
 	}
+	
 }
