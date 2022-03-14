@@ -1,3 +1,4 @@
+/*
 자바는 독립적, 자바 가상 기계는 종속적(JVM, Java virtual machine)
 
 ###프로젝트 이름 중요해### 프로젝트 이름 띄어쓰기 못하니 대문자쓰거나 언더바(_)써
@@ -17,6 +18,33 @@ overloading 시험문제다
 클래스는 첫문자 대문자로시작. 변수/메소드는 시작은 소문자 첫단어 이후 각 단어의 첫먼쨰문자 대문자로
 
 셤문제)) 생성자의 특징 세가지를 쓰시오
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------
+차례
+(48)  0307
+(63)  0310 원의 넓이 구하기
+(82)  0314 Scanner
+(122) 0314 홀짝
+(150) 0314 3의배수/10~20 출력
+-------------------------------------------------------------
+
 ****0307****
 public class FirstClass {
 
@@ -91,7 +119,7 @@ public class Practice {
 
 }
 
-****0314 홀짝 ****
+****0314 홀짝****
 import java.util.Scanner;
 
 public class Cls_OddEven {
@@ -117,4 +145,34 @@ public class Cls_OddEven {
 	oddScanner.close();
 	}
 	
+}
+
+****0314 3의배수/10~20 출력****
+import java.util.Scanner;
+
+public class Practice {
+
+	public static void main(String[] args) {
+		
+		Scanner myScanner;
+		int number;
+		int divThree;
+		
+		myScanner = new Scanner(System.in);
+		System.out.print("정수를 입력하세요:");
+		number = myScanner.nextInt();
+		
+		divThree = number %3;
+		
+		if (divThree == 0) {
+			if (10 < number && number <20) {
+				System.out.println(number + "는 3의 배수이며 10과 20 사이 숫자입니다.");
+			}
+			else System.out.println(number + "는 3의 배수이나 10~20 사이 숫자가 아닙니다.");
+		}
+		else System.out.println(number + "는 3의 배수도 아니고 10~20 사이 숫자도 아닙니다.");
+		
+		myScanner.close();		//scanner 했으면 꼭 close 해야 해
+	}
+
 }
