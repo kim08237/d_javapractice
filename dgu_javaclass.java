@@ -183,12 +183,13 @@ import java.util.Scanner;
 public class Practice {
 	public static void main(String [] args) {
 		
-		Scanner plusScanner;
+		Scanner plusScanner;		//스캐너 지정하면 꼭 스캐너 닫아줘
 		
-		int number1;
+		int number1, number2, iResult;
 		String isPlus;
-		int number2;
 		String fiveOperator = "+-*/%";
+		char cOperator;
+		Boolean whatNum1, whatNum2, whatOper;
 		//String Plus = "+";
 		
 		plusScanner = new Scanner(System.in);
@@ -196,16 +197,22 @@ public class Practice {
 		System.out.println("입력할 정수와 연산자를 입력하세요");
 		number1 = plusScanner.nextInt();
 		isPlus = plusScanner.next();
+		cOperator = fiveOperator.charAt(0);		//char는 작은따옴표로 표시
 		number2 = plusScanner.nextInt();
+
+		iResult = number1 + number2;
+		iResult = 0;
 		
-		char plusChar = fiveOperator.charAt(0);		//char는 작은따옴표로 표시
+		whatNum1 = 10 <= number1 && number1 < 100;
+		whatNum2 = 10 <= number2 && number2 < 100;
 		
-		//if (isPlus.equals(Plus) && 10 <= number1 && number1 < 100 && 10 <= number2 && number2 <100) {
-		if (plusChar == '+' && 10 <= number1 && number1 < 100 && 10 <= number2 && number2 <100) {
-			System.out.print(number1 + "+" + number2 + "=" + (number1 + number2));
-		}
-			else {
-				System.out.print("정수가 두 자리 수가 아니거나 입력한 연산자가 틀렸습니다.");
+		if (whatNum1 ==true && whatNum2 == true) {
+			if (cOperator == '+') {
+				iResult = number1 + number2;
+			}
+				System.out.print(number1 + cOperator + number2 + "=" + iResult);
+		}	else {
+				System.out.print("입력한 연산자가 틀렸습니다.");
 			}
 		
 		plusScanner.close();
