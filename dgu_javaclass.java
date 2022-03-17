@@ -199,8 +199,8 @@ public class Practice {
 		number1 = plusScanner.nextInt();
 		inputOper = plusScanner.next();
 		number2 = plusScanner.nextInt();
-		plusOper = fiveOper.charAt(0);		//char는 작은따옴표로 표시
 		
+		plusOper = fiveOper.charAt(0);		//char는 작은따옴표로 표시
 		iResult = 0;
 		
 		whatNum1 = 10 <= number1 && number1 < 100;
@@ -208,12 +208,13 @@ public class Practice {
 		
 		if (whatNum1 == true && whatNum2 == true) {
 			if (plusOper == '+') {
-				System.out.print("올바른 연산자를 입력하였습니다.");
 				iResult = number1 + number2;
+				System.out.print(number1 + inputOper + number2 + "=" + iResult);
+			}	else {
+				System.out.print("+연산자가 아닌 다른 연산자입니다.");
 			}
-				System.out.print(number1 + plusOper + number2 + "=" + iResult);
 		}	else {
-				System.out.print("입력한 연산자가 틀렸습니다.");
+				System.out.print("입력한 숫자가 틀렸습니다.");
 			}
 		
 		plusScanner.close();
