@@ -181,43 +181,45 @@ public class Practice {
 ****0317 정수계산****
 import java.util.Scanner;
 
+//두 자리 수인 두 정수를 입력받고 +연산을 압력받을때만 결과값 출력하는 프로그램
+
 public class Practice {
 	public static void main(String [] args) {
 		
-		Scanner plusScanner;				//스캐너 지정하면 꼭 스캐너 닫아줘
+		Scanner plusScanner;								//스캐너 지정하면 꼭 스캐너 닫아줘
 		
-		int number1, number2, iResult;
+		int number1, number2, iResult;						//변수들 선언
 		String inputOper;
 		String fiveOper = "+-*/%";
 		char plusOper;
 		Boolean whatNum1, whatNum2;
 		
 		
-		plusScanner = new Scanner(System.in);
+		plusScanner = new Scanner(System.in);				//스캐너 선언
 		
 		System.out.println("입력할 정수와 연산자를 입력하세요");
-		number1 = plusScanner.nextInt();
+		number1 = plusScanner.nextInt();					//정수랑 연산자 입력받기
 		inputOper = plusScanner.next();
 		number2 = plusScanner.nextInt();
 		
-		plusOper = fiveOper.charAt(0);		//char는 작은따옴표로 표시
-		iResult = 0;
+		plusOper = fiveOper.charAt(0);						//char는 작은따옴표로 표시
+		iResult = 0;										//결과값 초기화해줘야 오류안생김
 		
-		whatNum1 = 10 <= number1 && number1 < 100;
+		whatNum1 = 10 <= number1 && number1 < 100;			//정수가 모두 두 자리 수인지 알아봄
 		whatNum2 = 10 <= number2 && number2 < 100;
 		
-		if (whatNum1 == true && whatNum2 == true) {
-			if (plusOper == '+') {
-				iResult = number1 + number2;
+		if (whatNum1 == true && whatNum2 == true) {			//1.정수가 모두 두 자리 수일떄
+			if (plusOper == '+') {							//2.연산자도 +라면
+				iResult = number1 + number2;				//result 변수에 두 정수 합을 저장하고 밑줄 출력
 				System.out.print(number1 + inputOper + number2 + "=" + iResult);
-			}	else {
+			}	else {										//그게 아니라면 문구 출력
 				System.out.print("+연산자가 아닌 다른 연산자입니다.");
 			}
-		}	else {
+		}	else {											//1번 불만족이면 밑줄 출력
 				System.out.print("입력한 숫자가 틀렸습니다.");
 			}
 		
-		plusScanner.close();
+		plusScanner.close();								//스캐너 닫기
 		
 	}
 }
