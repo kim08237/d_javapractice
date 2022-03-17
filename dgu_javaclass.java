@@ -176,3 +176,39 @@ public class Practice {
 	}
 
 }
+
+****0317 정수계산****
+import java.util.Scanner;
+
+public class Practice {
+	public static void main(String [] args) {
+		
+		Scanner plusScanner;
+		
+		int number1;
+		String isPlus;
+		int number2;
+		String fiveOperator = "+-*/%";
+		//String Plus = "+";
+		
+		plusScanner = new Scanner(System.in);
+		
+		System.out.println("입력할 정수와 연산자를 입력하세요");
+		number1 = plusScanner.nextInt();
+		isPlus = plusScanner.next();
+		number2 = plusScanner.nextInt();
+		
+		char plusChar = fiveOperator.charAt(0);		//char는 작은따옴표로 표시
+		
+		//if (isPlus.equals(Plus) && 10 <= number1 && number1 < 100 && 10 <= number2 && number2 <100) {
+		if (plusChar == '+' && 10 <= number1 && number1 < 100 && 10 <= number2 && number2 <100) {
+			System.out.print(number1 + "+" + number2 + "=" + (number1 + number2));
+		}
+			else {
+				System.out.print("정수가 두 자리 수가 아니거나 입력한 연산자가 틀렸습니다.");
+			}
+		
+		plusScanner.close();
+		
+	}
+}
