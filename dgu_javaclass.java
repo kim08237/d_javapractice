@@ -43,6 +43,7 @@ overloading 시험문제다
 (82)  0314 Scanner
 (122) 0314 홀짝
 (150) 0314 3의배수/10~20 출력
+(180) 0317 scan으로 정수 합 구하기
 -------------------------------------------------------------
 
 ****0307****
@@ -183,34 +184,34 @@ import java.util.Scanner;
 public class Practice {
 	public static void main(String [] args) {
 		
-		Scanner plusScanner;		//스캐너 지정하면 꼭 스캐너 닫아줘
+		Scanner plusScanner;				//스캐너 지정하면 꼭 스캐너 닫아줘
 		
 		int number1, number2, iResult;
-		String isPlus;
-		String fiveOperator = "+-*/%";
-		char cOperator;
-		Boolean whatNum1, whatNum2, whatOper;
-		//String Plus = "+";
+		String inputOper;
+		String fiveOper = "+-*/%";
+		char plusOper;
+		Boolean whatNum1, whatNum2;
+		
 		
 		plusScanner = new Scanner(System.in);
 		
 		System.out.println("입력할 정수와 연산자를 입력하세요");
 		number1 = plusScanner.nextInt();
-		isPlus = plusScanner.next();
-		cOperator = fiveOperator.charAt(0);		//char는 작은따옴표로 표시
+		inputOper = plusScanner.next();
 		number2 = plusScanner.nextInt();
-
-		iResult = number1 + number2;
+		plusOper = fiveOper.charAt(0);		//char는 작은따옴표로 표시
+		
 		iResult = 0;
 		
 		whatNum1 = 10 <= number1 && number1 < 100;
 		whatNum2 = 10 <= number2 && number2 < 100;
 		
-		if (whatNum1 ==true && whatNum2 == true) {
-			if (cOperator == '+') {
+		if (whatNum1 == true && whatNum2 == true) {
+			if (plusOper == '+') {
+				System.out.print("올바른 연산자를 입력하였습니다.");
 				iResult = number1 + number2;
 			}
-				System.out.print(number1 + cOperator + number2 + "=" + iResult);
+				System.out.print(number1 + plusOper + number2 + "=" + iResult);
 		}	else {
 				System.out.print("입력한 연산자가 틀렸습니다.");
 			}
