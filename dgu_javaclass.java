@@ -18,9 +18,8 @@ overloading 시험문제다
 클래스는 첫문자 대문자로시작. 변수/메소드는 시작은 소문자 첫단어 이후 각 단어의 첫먼쨰문자 대문자로
 
 셤문제)) 생성자의 특징 세가지를 쓰시오
-*/
 
-
+break는 자신을 갑싸고 있는 '반복문' 하나만 빠져나온다
 
 
 
@@ -44,6 +43,7 @@ overloading 시험문제다
 (122) 0314 홀짝
 (150) 0314 3의배수/10~20 출력
 (180) 0317 scan으로 정수 합 구하기
+(227) 0321 메뉴 주문받기
 -------------------------------------------------------------
 
 ****0307****
@@ -221,5 +221,55 @@ public class Practice {
 		
 		plusScanner.close();								//스캐너 닫기
 		
+	}
+}
+
+****0321 메뉴 주문받기****
+package practice;
+
+import java.util.Scanner;
+
+public class practice {
+	public static void main(String [] args) {
+	
+	Scanner cafeOrder;
+	String menu1, menu2, menu3, myOrder;
+	int total=0, iPrice=0;
+
+	
+	menu1="에스프레소";
+	menu2="아메리카노";
+	menu3="카페라떼";
+	
+	cafeOrder=new Scanner(System.in);
+		
+		while (true) {
+			System.out.println("주문할 메뉴를 입력하세요.");
+			myOrder=cafeOrder.next();
+			
+			if(myOrder.charAt(0)=='0') {
+				break;
+			}
+			
+			switch (myOrder) {
+			case "에스프레소":
+				iPrice = 1500;
+				break;
+			case "아메리카노":
+				iPrice = 2000;
+				break;
+			case "카페라떼":
+				iPrice = 2500;
+				break;
+			default:
+				iPrice = 0;
+			}
+			total = total + iPrice;
+			System.out.println(iPrice+ "원 "+ myOrder + "를 주문받음");
+		}
+
+		System.out.println("오늘 영업이 종료되었습니다. 오늘의 매출액은 "+ total +"원 입니다."); 
+
+	cafeOrder.close();
 	}
 }
