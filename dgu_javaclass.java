@@ -225,21 +225,14 @@ public class Practice {
 }
 
 ****0321 메뉴 주문받기****
-package practice;
-
 import java.util.Scanner;
 
-public class practice {
+public class Practice {
 	public static void main(String [] args) {
 	
 	Scanner cafeOrder;
-	String menu1, menu2, menu3, myOrder;
+	String myOrder;
 	int total=0, iPrice=0;
-
-	
-	menu1="에스프레소";
-	menu2="아메리카노";
-	menu3="카페라떼";
 	
 	cafeOrder=new Scanner(System.in);
 		
@@ -247,9 +240,6 @@ public class practice {
 			System.out.println("주문할 메뉴를 입력하세요.");
 			myOrder=cafeOrder.next();
 			
-			if(myOrder.charAt(0)=='0') {
-				break;
-			}
 			
 			switch (myOrder) {
 			case "에스프레소":
@@ -262,13 +252,18 @@ public class practice {
 				iPrice = 2500;
 				break;
 			default:
-				iPrice = 0;
 			}
+			
+			
 			total = total + iPrice;
 			System.out.println(iPrice+ "원 "+ myOrder + "를 주문받음");
+			
+			if(myOrder.charAt(0)=='0') {
+				System.out.println("오늘 영업이 종료되었습니다. 오늘의 매출액은 "+ total +"원 입니다."); 
+				break;
+			}
 		}
 
-		System.out.println("오늘 영업이 종료되었습니다. 오늘의 매출액은 "+ total +"원 입니다."); 
 
 	cafeOrder.close();
 	}
