@@ -230,43 +230,40 @@ public class Practice {
 import java.util.Scanner;
 
 public class Practice {
-	public static void main(String [] args) {
+	public static void main(String args[]) {
 	
 	Scanner cafeOrder;
 	String myOrder;
 	int total=0, iPrice=0;
+
+	cafeOrder = new Scanner(System.in);
 	
-	cafeOrder=new Scanner(System.in);
-		
-		while (true) {
+		while (true) {										//반복문 시작
 			System.out.println("주문할 메뉴를 입력하세요.");
 			myOrder=cafeOrder.next();
 			
-			
-			switch (myOrder) {
+			switch(myOrder) {
 			case "에스프레소":
-				iPrice = 1500;
+				total = total + 1500;
+				System.out.println("1500원 에스프레소를 주문받음");
 				break;
 			case "아메리카노":
-				iPrice = 2000;
+				total = total + 2000;
+				System.out.println("2000원 아메리카노를 주문받음");
 				break;
 			case "카페라떼":
-				iPrice = 2500;
+				total = total + 2500;
+				System.out.println("2500원 카페라떼를 주문받음");
+			case "0":
+				System.out.println("오늘 영업이 종료되었습니다. 오늘의 매출액은 "+ total +"원 입니다.");
 				break;
 			default:
-			}
-			
-			
-			total = total + iPrice;
-			System.out.println(iPrice+ "원 "+ myOrder + "를 주문받음");
-			
-			if(myOrder.charAt(0)=='0') {
-				System.out.println("오늘 영업이 종료되었습니다. 오늘의 매출액은 "+ total +"원 입니다."); 
-				break;
+				System.out.println("해당 메뉴가 존재하지 않습니다.");
 			}
 		}
-
-
-	cafeOrder.close();
-	}
+				
+	}													//반복문 끝
+		
+		//cafeOrder.close();   반복문에서 break를 거치면 이 문장으로 오는데 이걸로 스캐너 닫혀서 14줄에서 오류뜸
 }
+
