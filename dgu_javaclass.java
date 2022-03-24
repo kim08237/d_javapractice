@@ -29,23 +29,43 @@ break는 자신을 갑싸고 있는 '반복문' 하나만 빠져나온다
 
 
 
-
-
-
-
-
-
-
-
-------------------------40줄 시작----------------------------
+------------------------32줄 시작----------------------------
 차례
-(51)  0307
-(66)  0310 원의 넓이 구하기
-(85)  0314 Scanner
-(122) 0314 홀짝
-(153) 0314 3의배수/10~20 출력
-(183) 0317 scan으로 정수 합 구하기
-(229) 0321 메뉴 주문받기
+(71)  0307
+(86)  0310 원의 넓이 구하기
+(105)  0314 Scanner
+(142) 0314 홀짝
+(173) 0314 3의배수/10~20 출력
+(203) 0317 scan으로 정수 합 구하기
+(249) 0321 메뉴 주문받기
+(290) 0324 구구단 짜기
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -------------------------------------------------------------
 
 ****0307****
@@ -267,3 +287,32 @@ public class Practice {
 		//cafeOrder.close();   반복문에서 break를 거치면 이 문장으로 오는데 이걸로 스캐너 닫혀서 14줄에서 오류뜸
 }
 
+****0324 구구단 짜기****
+package practice;
+import java.util.Scanner;
+
+public class Plus1to10 {
+	public static void main(String[] args) {
+		
+		Scanner scanDan;
+		int danNum, mulNum, numPlus1;
+		
+		scanDan = new Scanner(System.in);
+		
+		while (true) {
+			danNum = scanDan.nextInt();
+		
+			if (danNum !=0) {
+				for (mulNum=0; mulNum<9; mulNum++) {
+					numPlus1 = mulNum + 1;
+					System.out.print(danNum+ "*" + numPlus1 +"="+ danNum*numPlus1 +" ");
+				}
+				System.out.print("\n======================="+danNum+"단==========================\n");
+			}
+			else {
+				System.out.println("프로그램을 종료합니다");
+				break;
+			}
+		} //와일문 끝
+	}
+}
