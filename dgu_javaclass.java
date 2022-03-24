@@ -21,14 +21,14 @@ overloading 시험문제다
 
 break는 자신을 갑싸고 있는 '반복문' 하나만 빠져나온다
 
+배열: 같은 type의 여러개 data를 하나의 이름으로 저장하는 것. 구별은 인덱스로 한다. new 선언해야 인덱스 사용 가능
+
+초기화 : 선언과 동시에 값을 부여하는 것. ex) int i=0;, int intArr[]={0,1,2};
+
+
+
+
 */
-
-
-
-
-
-
-
 ------------------------32줄 시작----------------------------
 차례
 (71)  0307
@@ -39,7 +39,7 @@ break는 자신을 갑싸고 있는 '반복문' 하나만 빠져나온다
 (203) 0317 scan으로 정수 합 구하기
 (249) 0321 메뉴 주문받기
 (290) 0324 구구단 짜기
-
+(320) 0324 배열 입력받기
 
 
 
@@ -314,5 +314,31 @@ public class Plus1to10 {
 				break;
 			}
 		} //와일문 끝
+	}
+}
+
+****0324 배열 입력받기****
+package practice;
+import java.util.Scanner;
+public class Plus1to10 {
+	public static void main(String[] args) {
+		
+		final int ARR_SIZE =3;					//int에서 안바뀜. final선언하면 다 대문자로 써야해
+		Scanner inputNum;
+		int intArray[], index;
+		
+		intArray= new int[ARR_SIZE];					//intArray[0]~intArrat[9]
+		inputNum = new Scanner(System.in);				//스캐너
+		
+		
+		for (index = 0; index < ARR_SIZE; ++index) {	//입력받은 정수를 배열에 저장
+			System.out.print("정수를 입력하세요: ");
+			intArray[index]= inputNum.nextInt();
+		}
+		
+		for (index = 0; index < ARR_SIZE; ++index) {	//배열 출력
+			System.out.println("입력된 값: " + intArray[index]);
+		}
+		inputNum.close();
 	}
 }
