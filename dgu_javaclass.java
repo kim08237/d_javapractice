@@ -40,7 +40,8 @@ break는 자신을 갑싸고 있는 '반복문' 하나만 빠져나온다
 (249) 0321 메뉴 주문받기
 (290) 0324 구구단 짜기
 (320) 0324 배열 입력받기
-
+(346) 0328 배열 입력하고 최댓값, 최솟값 찾기
+(___) 0328 로또번호 6개 입력하기
 
 
 
@@ -385,5 +386,47 @@ public class Arrayint {
 		
 		nScanner.close();
 
+	}
+}
+
+****0328 로또번호 6개 입력하기****
+import java.util.Scanner;
+
+public class Arrayint {
+
+	public static void main(String[] args) {
+
+		int i, m, lottoNum;
+		Scanner nScanner;
+		int iArray[];
+		nScanner = new Scanner(System.in);
+		
+		iArray = new int[6];
+		
+		System.out.print("정수를 입력하세요");
+		
+		for (i=0; i<iArray.length;i++) {
+			lottoNum = nScanner.nextInt();
+			
+			if (lottoNum >= 1 && lottoNum <= 45) {
+				for (m=0; m<=i; m++) {
+					if (iArray[m] == lottoNum) {
+						System.out.println("중복된 숫자를 입력하였습니다");
+						break;
+					}
+					iArray[i] = lottoNum;		//지금까지 입력받은 숫자 갯수를 알아야 한다는데,,
+				}
+				
+			}
+			else {
+				System.out.println("1과 45 사이의 숫자를 입력하여야 합니다.");
+			}
+		}
+		
+		for (i=0; i<iArray.length;i++) {
+			System.out.print(iArray[i]+" ");
+			}
+		
+		nScanner.close();
 	}
 }
