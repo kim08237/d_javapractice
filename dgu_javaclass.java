@@ -342,3 +342,48 @@ public class Plus1to10 {
 		inputNum.close();
 	}
 }
+
+****0328 배열 입력하고 최댓값, 최솟값 찾기****
+import java.util.Scanner;
+
+public class Arrayint {
+
+	public static void main(String[] args) {
+
+		int i, max, min, wMax, wMin;
+		Scanner nScanner;
+		int iArray[];
+		nScanner = new Scanner(System.in);		//선언하기
+		
+		iArray = new int[5];					//배열 생성하기
+		
+		System.out.print("정수를 입력하세요");
+		
+		for (i=0; i<iArray.length;i++) {		//배열 입력받기
+			iArray[i] = nScanner.nextInt();
+		}
+		
+		max = iArray[0];
+		min = iArray[0];
+		wMax = 0;
+		wMin = 0;								//알고자 하는 변수 초기화
+		
+		for (i=0; i<iArray.length;i++) {		//최댓값과 위치 구하기
+		 	if (iArray[i] > max) {
+				max = iArray[i];
+				wMax = i;
+		 	}
+			if (iArray[i] < min) {				//최솟값과 위치 구하기
+				min = iArray[i];
+				wMin = i;
+				}		
+		}
+		
+		
+		System.out.println("입력값 중 최댓값은 "+wMax+"번째 숫자 " +max+"입니다");
+		System.out.println("입력값 중 최댓값은 "+wMin+"번째 숫자 "+min+"입니다");
+		
+		nScanner.close();
+
+	}
+}
