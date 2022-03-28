@@ -376,12 +376,12 @@ public class Arrayint {
 			if (iArray[i] < min) {				//최솟값과 위치 구하기
 				min = iArray[i];
 				wMin = i;
-				}		
+			}		
 		}
 		
 		
-		System.out.println("입력값 중 최댓값은 "+wMax+"번째 숫자 " +max+"입니다");
-		System.out.println("입력값 중 최댓값은 "+wMin+"번째 숫자 "+min+"입니다");
+		System.out.println("입력값 중 최댓값은 "+(wMax+1)+"번째 숫자 " +max+"입니다");
+		System.out.println("입력값 중 최댓값은 "+(wMin+1)+"번째 숫자 " +min+"입니다");
 		
 		nScanner.close();
 
