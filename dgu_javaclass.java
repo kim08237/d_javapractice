@@ -392,37 +392,49 @@ public class Arrayint {
 ****0328 로또번호 6개 입력하기****
 import java.util.Scanner;
 
-public class Arrayint {
+public class Practice {
 
 	public static void main(String[] args) {
 
-		int i, m, lottoNum;
+		int i, mulNum, lottoNum, count;			//mulNum: 중복 확인 변수, lottoNum: 입력한 정수, count: 배열에 저장된 숫자 갯수
 		Scanner nScanner;
 		int iArray[];
-		nScanner = new Scanner(System.in);
+		nScanner = new Scanner(System.in);		//변수들 선언
 		
-		iArray = new int[6];
+		iArray = new int[6];					//배열 생성
+		count = 0;
 		
 		System.out.print("정수를 입력하세요");
 		
-		for (i=0; i<iArray.length;i++) {
-			lottoNum = nScanner.nextInt();
+		for (i = 0; i < iArray.length; i++) {
+			lottoNum = nScanner.nextInt();						//수를 입력받고
 			
-			if (lottoNum >= 1 && lottoNum <= 45) {
-				for (m=0; m<=i; m++) {
-					if (iArray[m] == lottoNum) {
-						System.out.println("중복된 숫자를 입력하였습니다");
-						break;
-					}
-					iArray[i] = lottoNum;		//지금까지 입력받은 숫자 갯수를 알아야 한다는데,,
+			if (lottoNum >= 1 && lottoNum <= 45) {				//이게 범위 사이인데
+				if (i == 0) {
+					iArray[0] = lottoNum;
+					count = 1;
+				}
+				else {
+					for (mulNum = 0; mulNum < count; mulNum++) {
+						if (iArray[mulNum] == lottoNum) {			//입력한 수와 겹치는게 있다면
+							System.out.println("중복된 숫자를 입력하였습니다. 다시 입력하세요");
+							break;									//다시 입력하라 하고
+						}
+						else {
+							iArray[i] = lottoNum;						//아니면 배열에 저장
+							count = count + 1;
+						}
+					}	
 				}
 			}
-			else {
-				System.out.println("1과 45 사이의 숫자를 입력하여야 합니다.");
+			
+			else {												//근데 범위 사이가 아니면 아래 출력하고 재입력
+				System.out.println("1과 45 사이의 숫자를 입력하여야 합니다. 다시 입력하세요");
 			}
+			
 		}
 		
-		for (i=0; i<iArray.length;i++) {
+		for (i=0; i<iArray.length;i++) {			//입력받은 6개 숫자 출력하기
 			System.out.print(iArray[i]+" ");
 			}
 		
