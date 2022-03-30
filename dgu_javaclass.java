@@ -409,30 +409,29 @@ public class Practice {
 		for (i = 0; i < iArray.length; i++) {
 			lottoNum = nScanner.nextInt();						//수를 입력받고
 			
-			if (lottoNum >= 1 && lottoNum <= 45) {				//이게 범위 사이인데
-				if (i == 0) {
+			if (lottoNum >= 1 && lottoNum <= 45) {				//이게 범위 사이일때
+				if (i == 0) {									//입력을 처음 받는다면 그냥 저장
 					iArray[0] = lottoNum;
 					count = 1;
 				}
-				else {
+				else {											//입력이 처음이 아니면 중복확인 절차를 거쳐야 한다
 					for (mulNum = 0; mulNum < count; mulNum++) {
 						if (iArray[mulNum] == lottoNum) {			//입력한 수와 겹치는게 있다면
-							System.out.println("중복된 숫자를 입력하였습니다. 다시 입력하세요");
-							break;									//다시 입력하라 하고
+							System.out.println("중복된 숫자를 입력하였습니다. 다시 입력하세요.");
+							i = count - 1;
+							break;									//다시 입력하라 하기
 						}
-						else {
-							iArray[i] = lottoNum;						//아니면 배열에 저장
-							count = count + 1;
-						}
-					}	
+					}						//알았다..중복일때 입력한 자리에 0을 안입력하고 그 자리에 다시 입력하게 하는 걸 짜야해
+					//iArray[i] = lottoNum;
+					//count = count + 1;
 				}
 			}
-			
 			else {												//근데 범위 사이가 아니면 아래 출력하고 재입력
-				System.out.println("1과 45 사이의 숫자를 입력하여야 합니다. 다시 입력하세요");
+				System.out.println("1과 45 사이의 숫자를 입력하여야 합니다. 다시 입력하세요.");
 			}
 			
 		}
+		
 		
 		for (i=0; i<iArray.length;i++) {			//입력받은 6개 숫자 출력하기
 			System.out.print(iArray[i]+" ");
