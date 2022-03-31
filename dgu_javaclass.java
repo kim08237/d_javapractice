@@ -32,16 +32,16 @@ break는 자신을 갑싸고 있는 '반복문' 하나만 빠져나온다
 ------------------------32줄 시작----------------------------
 차례
 (71)  0307
-(86)  0310 원의 넓이 구하기
-(105)  0314 Scanner
-(142) 0314 홀짝
-(173) 0314 3의배수/10~20 출력
-(203) 0317 scan으로 정수 합 구하기
-(249) 0321 메뉴 주문받기
-(290) 0324 구구단 짜기
-(320) 0324 배열 입력받기
-(346) 0328 배열 입력하고 최댓값, 최솟값 찾기
-(392) 0328 로또번호 6개 입력하기
+(90)  0310 원의 넓이 구하기
+(110) 0314 Scanner
+(150) 0314 홀짝
+(180) 0314 3의배수/10~20 출력
+(210) 0317 scan으로 정수 합 구하기
+(260) 0321 메뉴 주문받기
+(310) 0324 구구단 짜기
+(340) 0324 배열 입력받기
+(370) 0328 배열 입력하고 최댓값, 최솟값 찾기
+(420) 0328 로또번호 6개 입력하기
 
 
 
@@ -84,6 +84,9 @@ public class FirstClass {
 }
 
 
+
+
+
 ****0310 원의 넓이 구하기****
 package ClassPi;
 
@@ -101,6 +104,7 @@ public class PiCircle {							// 클래스이름이니까 대문자로 시작
 		System.out.println("반지름이 " + iRadius + "인 원의 면적은 "+ dCircleArea);
 	}
 }
+
 
 
 ****0314 Scanner****
@@ -170,6 +174,8 @@ public class Cls_OddEven {
 	}
 	
 }
+
+
 
 ****0314 3의배수/10~20 출력****
 import java.util.Scanner;
@@ -247,6 +253,10 @@ public class Practice {
 	}
 }
 
+
+
+
+
 ****0321 메뉴 주문받기****
 import java.util.Scanner;
 
@@ -287,6 +297,15 @@ public class Practice {
 		
 		//cafeOrder.close();   반복문에서 break를 거치면 이 문장으로 오는데 이걸로 스캐너 닫혀서 14줄에서 오류뜸
 }
+
+
+
+
+
+
+
+
+
 
 ****0324 구구단 짜기****
 package practice;
@@ -344,6 +363,10 @@ public class Plus1to10 {
 	}
 }
 
+
+
+
+
 ****0328 배열 입력하고 최댓값, 최솟값 찾기****
 import java.util.Scanner;
 
@@ -389,6 +412,11 @@ public class Arrayint {
 	}
 }
 
+
+
+
+
+
 ****0328 로또번호 6개 입력하기****
 import java.util.Scanner;
 
@@ -407,26 +435,29 @@ public class Practice {
 		System.out.print("정수를 입력하세요");
 		
 		for (i = 0; i < iArray.length; i++) {
-			lottoNum = nScanner.nextInt();						//수를 입력받고
+			lottoNum = nScanner.nextInt();							//수를 입력받고
 			
-			if (lottoNum >= 1 && lottoNum <= 45) {				//이게 범위 사이일때
-				if (i == 0) {									//입력을 처음 받는다면 그냥 저장
+			if (lottoNum >= 1 && lottoNum <= 45) {					//이게 범위 사이일때
+				if (i == 0) {										//입력을 처음 받는다면 배열에 그냥 저장
 					iArray[0] = lottoNum;
 					count = 1;
 				}
-				else {											//입력이 처음이 아니면 중복확인 절차를 거쳐야 한다
+				else {												//입력이 처음이 아니면 중복확인 절차를 거쳐야 한다
 					for (mulNum = 0; mulNum < count; mulNum++) {
 						if (iArray[mulNum] == lottoNum) {			//입력한 수와 겹치는게 있다면
 							System.out.println("중복된 숫자를 입력하였습니다. 다시 입력하세요.");
 							i = count - 1;
-							break;									//다시 입력하라 하기
+							break;									//중복확인 for문 벗어나 다시 입력받기
 						}
-					}						//알았다..중복일때 입력한 자리에 0을 안입력하고 그 자리에 다시 입력하게 하는 걸 짜야해
-					//iArray[i] = lottoNum;
-					//count = count + 1;
+						
+						if (mulNum == count - 1) {					//마지막까지 비교가 다 끝났으면 배열에 저장
+							iArray[i] = lottoNum;
+							count++;
+						}
+					}
 				}
 			}
-			else {												//근데 범위 사이가 아니면 아래 출력하고 재입력
+			else {													//근데 범위 사이가 아니면 아래 출력하고 재입력
 				System.out.println("1과 45 사이의 숫자를 입력하여야 합니다. 다시 입력하세요.");
 			}
 			
