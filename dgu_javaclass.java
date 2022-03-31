@@ -459,6 +459,7 @@ public class Practice {
 			}
 			else {													//근데 범위 사이가 아니면 아래 출력하고 재입력
 				System.out.println("1과 45 사이의 숫자를 입력하여야 합니다. 다시 입력하세요.");
+				i = count -1;
 			}
 			
 		}
