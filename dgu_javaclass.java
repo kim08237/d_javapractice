@@ -31,7 +31,7 @@ break는 자신을 갑싸고 있는 '반복문' 하나만 빠져나온다
 */
 ------------------------32줄 시작----------------------------
 차례
-(71)  0307
+(72)  0307
 (90)  0310 원의 넓이 구하기
 (110) 0314 Scanner
 (150) 0314 홀짝
@@ -42,7 +42,7 @@ break는 자신을 갑싸고 있는 '반복문' 하나만 빠져나온다
 (340) 0324 배열 입력받기
 (370) 0328 배열 입력하고 최댓값, 최솟값 찾기
 (420) 0328 로또번호 6개 입력하기
-
+(510) 0331 이차원 배열 랜덤 수 입렬하기
 
 
 
@@ -497,3 +497,54 @@ public class Pactice {
 		nScanner.close();
 	}
 }
+
+
+
+
+
+
+
+
+
+
+****0331 이차원 배열 랜덤 수 입렬하기****
+import java.util.Random;
+
+public class Pactice {
+
+	public static void main(String[] args) {
+
+		int i, m, n,inputNum, resultArr[][], ranArr[];
+		Random oRan, colRan, rawRan;
+		int colRanNum, rawRanNum;
+		
+		oRan = new Random();
+		colRan = new Random();
+		rawRan = new Random();
+		
+		//oRanNum = oRan.nextInt(9)+1;
+		//colRanNum = colRan.nextInt(4) +1;
+		//rawRanNum = rawRan.nextInt(4) +1;
+		
+		resultArr = new int[4][4];
+		ranArr = new int[10];
+		
+
+		System.out.print("랜덤 생성된 10개의 숫자: ");
+		for (i = 0; i<10; i++) {
+			ranArr[i] = oRan.nextInt(9)+1;
+			System.out.print(+ranArr[i] + " ");
+		}
+		
+		System.out.println("\n//////////////////////////////");
+		
+		for (inputNum = 0; inputNum<10; inputNum++) {
+			colRanNum = colRan.nextInt(4) +1;
+			rawRanNum = rawRan.nextInt(4) +1;
+			resultArr[colRanNum][rawRanNum] = ranArr[inputNum];
+			
+			if (resultArr[colRanNum][rawRanNum] != 0) {
+				inputNum = inputNum - 1;
+			}
+			
+		}
