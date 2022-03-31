@@ -510,43 +510,46 @@ public class Pactice {
 ****0331 이차원 배열 랜덤 수 입렬하기****
 import java.util.Random;
 
-public class Pactice {
+public class Practice {
 
 	public static void main(String[] args) {
 
-		int i, m, n,inputNum, resultArr[][], ranArr[];
-		Random oRan, colRan, rawRan;
-		int colRanNum, rawRanNum;
+		int i, m, n, ranArr[], resultArr[][];		//i는 2차원배열에 값 넣는 for문에, m/n은 resultArr출력하는 for문에
+		Random oRan, colRan, rawRan;		//랜덤값 만들어내는 함수 정의
+		int colRanNum, rawRanNum;			//colRanNum은 colRan에서 랜덤으로 출력한 정수(행을 결정함), ranRanNum은 열 결정
 		
-		oRan = new Random();
+		oRan = new Random();				//랜덤값 만들어내는 함수 생성
 		colRan = new Random();
 		rawRan = new Random();
 		
-		//oRanNum = oRan.nextInt(9)+1;
-		//colRanNum = colRan.nextInt(4) +1;
-		//rawRanNum = rawRan.nextInt(4) +1;
-		
-		resultArr = new int[4][4];
-		ranArr = new int[10];
-		
+		ranArr = new int[10];				//랜덤으로 생성한 10개의 숫자 저장하는 배열
+		resultArr = new int[4][4];			//ranArr배열을 2차원 배열에 저장한 것
 
 		System.out.print("랜덤 생성된 10개의 숫자: ");
-		for (i = 0; i<10; i++) {
+		for (i = 0; i<10; i++) {									//랜덤값 10개를 ranArr에 저장
 			ranArr[i] = oRan.nextInt(9)+1;
 			System.out.print(+ranArr[i] + " ");
 		}
 		
-		System.out.println("\n//////////////////////////////");
+		System.out.println("\n//////////////////////////////////////");
 		
-		for (inputNum = 0; inputNum<10; inputNum++) {
-			colRanNum = colRan.nextInt(4) +1;
-			rawRanNum = rawRan.nextInt(4) +1;
-			resultArr[colRanNum][rawRanNum] = ranArr[inputNum];
+		for (i = 0; i < 10; i++) {
+			colRanNum = colRan.nextInt(4);
+			rawRanNum = rawRan.nextInt(4);
 			
-			if (resultArr[colRanNum][rawRanNum] != 0) {
-				inputNum = inputNum - 1;
+			if (resultArr[colRanNum][rawRanNum] == 0) {				//2차원 배열에 아직 입력되지 않았다면 배열에 집어넣고
+				resultArr[colRanNum][rawRanNum] = ranArr[i];
+			} else {												//아니면 다시 랜덤값 받아야지
+				i = i - 1;
 			}
-			
 		}
+		
+		for (m = 0; m < 4; m++) {									//결과 배열 출력하기
+			for (n = 0; n < 4; n++) {
+				System.out.print(resultArr[m][n] + " ");
+			}
+			System.out.print("\n");
+		}
+		
 	}
 }
