@@ -1,37 +1,35 @@
-/*
 자바는 독립적, 자바 가상 기계는 종속적(JVM, Java virtual machine)
-
 ###프로젝트 이름 중요해### 프로젝트 이름 띄어쓰기 못하니 대문자쓰거나 언더바(_)써
-
 클래스 이름 정할 때 중요한 것: 첫글자 대문자. 클래스가 아닌 것은 소문자로 시작
-
 //는 주석을 뜻해
-
 "______"는 문자열(string), ' '는 문자 하나(char)
     문자열인데 작은따옴표 ' '쓰면 오류떠. invalid character constnat
-
 클래스이름, 프로젝트이름 등 한글 사용 가능하나 전세계 개발자들이 그렇게 안하니 걍 대문자로 시작해
 overloading 시험문제다
-
 하나의 소스 파일에 여러 클래스 작성 가능하나 여러개는 비추고 하나만 작성 추천.컴파일된 클래스 파일에는 클래스는 하나만 존재.
-    
 클래스는 첫문자 대문자로시작. 변수/메소드는 시작은 소문자 첫단어 이후 각 단어의 첫먼쨰문자 대문자로
-
 셤문제)) 생성자의 특징 세가지를 쓰시오
-
 break는 자신을 갑싸고 있는 '반복문' 하나만 빠져나온다
-
 배열: 같은 type의 여러개 data를 하나의 이름으로 저장하는 것. 구별은 인덱스로 한다. new 선언해야 인덱스 사용 가능
-
 초기화 : 선언과 동시에 값을 부여하는 것. ex) int i=0;, int intArr[]={0,1,2};
+변수: 지역변수, 전역변수, 멤버변수, 매개변수
+생성자: 클래스 이름과 도일한 특별한 메소드, 객체가 생성될 떄 자동으로 한 번 생성되는 메소드, 개발자는 객체를 초기화하는 데 필요한 코드 작성
 
 
 
 
-*/
+
+
+
+
+
+
+
+
+
 ------------------------32줄 시작----------------------------
 차례
-(72)  0307
+(70)  0307
 (90)  0310 원의 넓이 구하기
 (110) 0314 Scanner
 (150) 0314 홀짝
@@ -43,9 +41,9 @@ break는 자신을 갑싸고 있는 '반복문' 하나만 빠져나온다
 (370) 0328 배열 입력하고 최댓값, 최솟값 찾기
 (420) 0328 로또번호 6개 입력하기
 (510) 0331 이차원 배열 랜덤 수 입렬하기
-
-
-
+(560) 0404 try catch
+(590) 0404 함수 만들어서 정수 더하기
+(620) 0404 클래스함수 만들기
 
 
 
@@ -82,6 +80,8 @@ public class FirstClass {
 	}
 
 }
+
+
 
 
 
@@ -551,5 +551,110 @@ public class Practice {
 			System.out.print("\n");
 		}
 		
+	}
+}
+
+
+
+
+****0404 try catch****
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Practice {
+
+	public static void main(String[] args) {
+
+		Scanner oScanner;
+		int iInval;
+		
+		oScanner = new Scanner(System.in);
+			try {
+				System.out.print("정수 입력: ");
+				iInval = oScanner.nextInt();
+				System.out.println("입력된 정수: :" + iInval / 0);
+			} catch(InputMismatchException a) {
+				System.out.println("잘못된 입력..");
+			} catch(ArithmeticException e) {
+				System.out.println("잘못된 처리..");
+			}
+		
+		oScanner.close();
+	}
+}
+
+
+
+
+
+****0404 함수 만들어서 정수 더하기****
+import java.util.Scanner;
+
+public class Practice {
+
+	public static int add(int a, int b) {
+		int result;
+		result = a+b;
+		return result;
+	}
+	
+	public static void main(String[] args) {
+		
+		Scanner iScanner;
+		int num1, num2, fResult=0 ;
+		
+		iScanner = new Scanner(System.in);
+		
+		System.out.print("2개의 정수를 입력하세요. " );
+		num1 = iScanner.nextInt();
+		num2 = iScanner.nextInt();
+	
+		fResult = add(num1, num2); //함수 호출. y=f(x) 생각해!!
+		
+		System.out.println("두 정수의 합은 "+ fResult);
+	
+		iScanner.close();
+	}
+}
+
+****0404 클래스 함수 만들기****
+/* MyTest 클래스 */
+public class MyTest {
+	public int iRadius;			//iRadius는 이 클래스의 멤버변수
+	public String sName;
+	
+	public MyTest() {			//멤버변수의 초기값 주는데 쓰고 안줄거면 {}안 비워두기
+		iRadius = 1;
+		sName = "My Circle";
+	}
+	public MyTest(int iNo) {	//이 경우는 overloading
+		iRadius = iNo;			//practice클래스에서 MyTest(5)하면 반지름을 5로 계산
+		sName = "My Circle";
+	}
+	public double getArea() {
+		double dArea; 			//dArea는 지역변수
+		dArea = 3.14*iRadius*iRadius;
+		return dArea;
+	}
+	
+	public double getRound() {
+		double dRound; 			//dArea는 지역변수
+		dRound = 2*3.14*iRadius;
+		return dRound;
+	}
+}
+
+/* Practice 클래스 */
+public class Practice {
+	
+	public static void main(String[] args) {
+		MyTest oPizza;
+		
+		oPizza = new MyTest();
+		oPizza.iRadius = 10;
+		
+		System.out.println("반지름은 " + oPizza.iRadius);
+		System.out.println("넓이는 " + oPizza.getArea());
+		System.out.println("둘레는 " + oPizza.getRound());
 	}
 }
