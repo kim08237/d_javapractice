@@ -658,3 +658,115 @@ public class Practice {
 		System.out.println("둘레는 " + oPizza.getRound());
 	}
 }
+
+
+
+
+
+
+
+
+
+****0406 report 과제****
+/*
+다음의 기능을 제공하는 프로그램을 주어진 조건에 적용하여 작성하시오.
+-대문자(A~Z), 소문자(a~z), 수문자(0~9), 특수문자(공백포함)이 포함된 문자열을 입력받는다.
+-문자열에 길이는 최소 50개 이상으로 입력받는다.
+-각 문자의 발생 빈도 수를 다음과 같이 출력한다
+ex) 	A:[00], B:[00] ......Z:[00]
+		.......
+	 특수문자: [00]
+main함수는 필요한 변수와 다음과 같은 함수 호출이 포함되어야 한다.
+-문자열을 입력바든ㄴ 함수 호출
+-특정문자를 대문자, 소문자, 수문자, 특수문자로 구별하는 기능을 수행하는 ㅎ마수
+-문자의 빈도수를 출력하는 함수 호출
+
+*/
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Test_Class {
+	
+	public String scanArr[];			//입력받은 배열은 여러 함수에서 다 쓰니까 따로 위쪽으로 빼서 public붙이고
+	public char capLetArr[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+	public char smaLetArr[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+	public int numArr[] = {0,1,2,3,4,5,6,7,8,9};
+
+	@SuppressWarnings("resource")	//스캐너 닫았는데 자꾸 안닫았대서 넣어봄
+	public void inputString() {		//문자열 입력받는 함수
+		
+		Scanner oScanner;			//스캐너는 이 함수에만 쓸거니까 public 안붙여도 됨
+		int i;
+		
+		scanArr = new String[10];		//입력받은 문자열 저장하는 배열
+		
+		oScanner = new Scanner(System.in);
+		
+		for (i = 0; i < 10; i++) {		//입력받은 문자열 배열에 저장하기
+			scanArr[i] = oScanner.next();		//스캐너로 입력받는건 string인가봐
+		}
+		
+		/*System.out.print("입력한 문자열은 ");
+		for (m = 0; m < 10; m++) {
+			System.out.print(strArr[m]);
+		}*/
+		oScanner.close();
+	}
+	
+	
+	@SuppressWarnings("unlikely-arg-type")
+	public void whatType() {		//대문자~특수문자 구별하는 기능 수행 함수
+		int n;
+		
+		for (n = 0; n<10; n++) {
+			
+			if (Arrays.asList(capLetArr).contains(scanArr[n])) {
+				System.out.println(n + "번째 문자: 대문자");
+			}
+			else if (Arrays.asList(smaLetArr).contains(scanArr[n])) {
+				System.out.println(n + "번째 문자: 소문자");
+			}
+			else if (Arrays.asList(numArr).contains(scanArr[n])) {
+				System.out.println(n + "번째 문자: 숫자");
+			}
+			else {
+				System.out.println(n + "번째 문자: 기타 특수문자(공백 포함)");
+			}
+		}
+		
+	}
+	
+	
+	@SuppressWarnings("unlikely-arg-type")
+	public void checkFreq() {		//문자의 빈도수 출력하는 함수
+		
+		int k, x, y, z;
+		int capCount[], smaCount[], numCount[];
+		
+		capCount = new int [capLetArr.length];
+		smaCount = new int [smaLetArr.length];
+		numCount = new int [numArr.length];
+		
+		
+		for (k = 0; k < 10; k++) {
+			
+			if (Arrays.asList(capLetArr).contains(scanArr[k])) {
+				for (x = 0; x < capLetArr.length; x++) {
+					if (charscanArr[k] == capLetArr[x]) {//입력한 것과 같은 문자의 갯수에 +1하는 것
+						capCount[x] = capCount[x] + 1;
+						break;
+					}
+				}	//어느 대문자인가?
+			}	//대문자인가?
+				
+		}	//전체 for문 끝
+		
+	}
+
+	
+	
+	
+	
+	
+	
+}	//전체 클래스 닫는 괄호
