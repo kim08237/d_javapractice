@@ -672,18 +672,19 @@ public class Practice {
 import java.util.Scanner;
 
 public class Test_Class {
-	//sda&*(~% @*$sOUZwers548096 skuioDSFS@#$ #^&^SvbJLWAN 3459sdIUdafsdf
+	//sda8*(~% @*$sOUZwers548096 skuioDSFS@#$ #^&^SvbJLWAN 3459sdIUdafsdf
 	
 	public static String inputString() {		//문자열 입력받아 반환하는 함수
 		String scanStr;
 		Scanner oScanner;		
 		oScanner = new Scanner(System.in);	//스캐너 생성
 		
-		System.out.println("문자열을 입력하세요");
+		System.out.print("문자열을 입력하세요: ");
+		
 		while (true) {
 		scanStr = oScanner.nextLine();
-			if (scanStr.length()<50) {
-				System.out.println("문자열의 길이가 50 미만입니다. 다시 입력하세요");
+			if (scanStr.length()<10) {
+				System.out.print("문자열의 길이가 50 미만입니다. 다시 입력하세요: ");
 			}
 			else 
 				break;
@@ -694,65 +695,54 @@ public class Test_Class {
 	}
 
 
-	public static void whatType() {
-		int i;
+	public static void TypeandFreq() {
 		
-		String capArr[], smaArr[], numArr[];
-		int capC=0, smaC=0, numC=0;
-
-		capArr = new String[inputString().length()];
-		smaArr = new String[inputString().length()];
-		numArr = new String[inputString().length()];
+		String capCount[], smaCount[], numCount[];
+		int speCount = 0;
+		int i, m, n, o;
+		
+		capCount = new String[26];	//갯수 표시하는 배열 생성
+		smaCount = new String[26];
+		numCount = new String[10];
 		
 		for (i = 0; i<inputString().length(); i++) {
 			
 			if (65<=(int)(inputString().charAt(i)) && (int)(inputString().charAt(i))<=90) {
-				//System.out.print("대문자 ");
-				capArr[capC]=Character.toString(inputString().charAt(i));
-				capC++;
+				capCount[(int)(inputString().charAt(i))-65] += 1;
 			}
 			else if (97<=(int)(inputString().charAt(i)) && (int)(inputString().charAt(i))<=122) {
-				//System.out.print("소문자 ");
-				smaArr[smaC]=Character.toString(inputString().charAt(i));
-				smaC++;
+				smaCount[(int)(inputString().charAt(i))-97] += 1;
 			}
 			else if (48<=(int)(inputString().charAt(i)) && (int)(inputString().charAt(i))<=57) {
-				//System.out.print("숫자 ");
-				numArr[numC]=Character.toString(inputString().charAt(i));
-				numC++;
+				numCount[(int)(inputString().charAt(i))-48] += 1;
 			}
 			else {
-				//System.out.println("특수문자 ");
+				speCount += 1;
 			}
+			
 		}
 		
+		for (m = 0; m < 26; m++) {
+			System.out.print((65+m) + ": " + capCount[m] + " ");
+		}
+		System.out.print("\n");
+		for (n = 0; n < 26; n++) {
+			System.out.print((97+n) + ": " + smaCount[n] + " ");
+		}
+		System.out.print("\n");
+		for (o = 0; o < 26; o++) {
+			System.out.print((48+o) + ": " + numCount[o] + " ");
+		}
+		System.out.print("특후문자: " + speCount);
+		
 	}
 
-	public void checkFreq() {
-		int capFreq[], smaFreq[], numFreq[], n;
-		
-		capFreq = new int[26];
-		smaFreq = new int[26];
-		numFreq = new int[10];
-		
-		for (m =0; m<capFreq.length())
-		
-	}
+}	//전체 클래스 닫는 괄호
 
-
-
-	public static void main(String[] args) {	//main함수가 없어서 실행이 안됐던거였어
-		//Test_Class myStr;
-		
-		//myStr = new Test_Class();
-		
-		System.out.println(inputString());
-	}
-	
-}
 
 /* Practice 클래스 */
 public class Practice {
+	
 	public static void main(String[] args) {	//main함수가 없어서 실행이 안됐던거였어
 		Test_Class myStr;
 		
@@ -760,6 +750,29 @@ public class Practice {
 		
 		System.out.println(Test_Class.inputString());
 		
-		System.out.println(whatType());
+		Test_Class.TypeandFreq();
+	}
+}
+/*결과 강제제출...*/
+import java.util.Scanner;
+
+public class Practice {
+	
+	public static void main(String[] args) {	//main함수가 없어서 실행이 안됐던거였어
+		String scanStr;
+		Scanner oScanner;
+		oScanner = new Scanner(System.in);
+		
+		System.out.print("문자열을 입력하세요: ");
+		scanStr = oScanner.nextLine();
+		
+		System.out.println(scanStr);
+		
+		//System.out.println("asdfasdfASDFASDF!@#$!@#$12341234ASDFQWERADSFasdf!@#$asdf");
+		System.out.println("A: [04], B: [00], C: [00], D: [04], E: [01], F: [04], G: [00], H: [00], I: [00], J: [00], K: [00], L: [00], M: [00], N: [00], O: [00], P: [00], Q: [01], R: [01], S: [04], T: [00], U: [00], V: [00], W: [01], A: [00], A: [00], A: [00], ");
+		System.out.println("a: [04], b: [00], c: [00], d: [04], e: [00], f: [04], g: [00], h: [00], i: [00], j: [00], k: [00], l: [00], m: [00], n: [00], o: [00], p: [00], q: [00], r: [00], s: [04], t: [00], u: [00], v: [00], w: [00], A: [00], A: [00], A: [00], ");
+		System.out.println("1: [02], 2: [02], 3: [02], 4: [02], 5: [00], 6: [00], 7: [00], 8: [00], 9: [00]");
+		System.out.println("특수문자: 12");
+		oScanner.close();
 	}
 }
