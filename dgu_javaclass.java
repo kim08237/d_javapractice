@@ -692,11 +692,11 @@ public class Test_Class {
 	public char smaLetArr[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 	public int numArr[] = {0,1,2,3,4,5,6,7,8,9};
 
-	@SuppressWarnings("resource")	//스캐너 닫았는데 자꾸 안닫았대서 넣어봄
+	//@SuppressWarnings("resource")	//스캐너 닫았는데 자꾸 안닫았대서 넣어봄
 	public void inputString() {		//문자열 입력받는 함수
 		
 		Scanner oScanner;			//스캐너는 이 함수에만 쓸거니까 public 안붙여도 됨
-		int i;
+		int i, m;
 		
 		scanArr = new String[10];		//입력받은 문자열 저장하는 배열
 		
@@ -706,10 +706,11 @@ public class Test_Class {
 			scanArr[i] = oScanner.next();		//스캐너로 입력받는건 string인가봐
 		}
 		
-		/*System.out.print("입력한 문자열은 ");
+		System.out.print("입력한 문자열은 ");	//입력한 문자열 출력받기
 		for (m = 0; m < 10; m++) {
-			System.out.print(strArr[m]);
-		}*/
+			System.out.print(scanArr[m]);
+		}
+
 		oScanner.close();
 	}
 	
@@ -749,16 +750,16 @@ public class Test_Class {
 		
 		
 		for (k = 0; k < 10; k++) {
-			
 			if (Arrays.asList(capLetArr).contains(scanArr[k])) {
+				
 				for (x = 0; x < capLetArr.length; x++) {
-					if (charscanArr[k] == capLetArr[x]) {//입력한 것과 같은 문자의 갯수에 +1하는 것
+					if (scanArr[k] == capLetArr[x]) {	//입력한 것과 같은 문자의 갯수에 +1하는 것
 						capCount[x] = capCount[x] + 1;
 						break;
 					}
 				}	//어느 대문자인가?
-			}	//대문자인가?
 				
+			}	//대문자인가?
 		}	//전체 for문 끝
 		
 	}
