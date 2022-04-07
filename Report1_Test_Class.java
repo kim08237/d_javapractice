@@ -62,7 +62,7 @@ public class Test_Class {
 		for (o = 0; o < 26; o++) {
 			System.out.print((48+o) + ": " + numCount[o] + " ");
 		}
-		System.out.print("특후문자: " + speCount);
+		System.out.print("특수문자: " + speCount);
 		
 	}
 
