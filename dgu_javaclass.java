@@ -668,92 +668,98 @@ public class Practice {
 
 
 ****0406 report 과제****
+/* Test_Class 클래스 */
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Test_Class {
+	//sda&*(~% @*$sOUZwers548096 skuioDSFS@#$ #^&^SvbJLWAN 3459sdIUdafsdf
 	
-	public String scanArr[];			//입력받은 배열은 여러 함수에서 다 쓰니까 따로 위쪽으로 빼서 public붙이고
-	public char capLetArr[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-	public char smaLetArr[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-	public int numArr[] = {0,1,2,3,4,5,6,7,8,9};
-
-	//@SuppressWarnings("resource")	//스캐너 닫았는데 자꾸 안닫았대서 넣어봄
-	public void inputString() {		//문자열 입력받는 함수
+	public static String inputString() {		//문자열 입력받아 반환하는 함수
+		String scanStr;
+		Scanner oScanner;		
+		oScanner = new Scanner(System.in);	//스캐너 생성
 		
-		Scanner oScanner;			//스캐너는 이 함수에만 쓸거니까 public 안붙여도 됨
-		int i, m;
-		
-		scanArr = new String[10];		//입력받은 문자열 저장하는 배열
-		
-		oScanner = new Scanner(System.in);
-		
-		for (i = 0; i < 10; i++) {		//입력받은 문자열 배열에 저장하기
-			scanArr[i] = oScanner.next();		//스캐너로 입력받는건 string인가봐
+		System.out.println("문자열을 입력하세요");
+		while (true) {
+		scanStr = oScanner.nextLine();
+			if (scanStr.length()<50) {
+				System.out.println("문자열의 길이가 50 미만입니다. 다시 입력하세요");
+			}
+			else 
+				break;
 		}
 		
-		System.out.print("입력한 문자열은 ");	//입력한 문자열 출력받기
-		for (m = 0; m < 10; m++) {
-			System.out.print(scanArr[m]);
-		}
-
 		oScanner.close();
+		return scanStr;				//반환
 	}
-	
-	
-	@SuppressWarnings("unlikely-arg-type")
-	public void whatType() {		//대문자~특수문자 구별하는 기능 수행 함수
-		int n;
+
+
+	public static void whatType() {
+		int i;
 		
-		for (n = 0; n<10; n++) {
+		String capArr[], smaArr[], numArr[];
+		int capC=0, smaC=0, numC=0;
+
+		capArr = new String[inputString().length()];
+		smaArr = new String[inputString().length()];
+		numArr = new String[inputString().length()];
+		
+		for (i = 0; i<inputString().length(); i++) {
 			
-			if (Arrays.asList(capLetArr).contains(scanArr[n])) {
-				System.out.println(n + "번째 문자: 대문자");
+			if (65<=(int)(inputString().charAt(i)) && (int)(inputString().charAt(i))<=90) {
+				//System.out.print("대문자 ");
+				capArr[capC]=Character.toString(inputString().charAt(i));
+				capC++;
 			}
-			else if (Arrays.asList(smaLetArr).contains(scanArr[n])) {
-				System.out.println(n + "번째 문자: 소문자");
+			else if (97<=(int)(inputString().charAt(i)) && (int)(inputString().charAt(i))<=122) {
+				//System.out.print("소문자 ");
+				smaArr[smaC]=Character.toString(inputString().charAt(i));
+				smaC++;
 			}
-			else if (Arrays.asList(numArr).contains(scanArr[n])) {
-				System.out.println(n + "번째 문자: 숫자");
+			else if (48<=(int)(inputString().charAt(i)) && (int)(inputString().charAt(i))<=57) {
+				//System.out.print("숫자 ");
+				numArr[numC]=Character.toString(inputString().charAt(i));
+				numC++;
 			}
 			else {
-				System.out.println(n + "번째 문자: 기타 특수문자(공백 포함)");
+				//System.out.println("특수문자 ");
 			}
 		}
 		
 	}
-	
-	
-	@SuppressWarnings("unlikely-arg-type")
-	public void checkFreq() {		//문자의 빈도수 출력하는 함수
+
+	public void checkFreq() {
+		int capFreq[], smaFreq[], numFreq[], n;
 		
-		int k, x, y, z;
-		int capCount[], smaCount[], numCount[];
+		capFreq = new int[26];
+		smaFreq = new int[26];
+		numFreq = new int[10];
 		
-		capCount = new int [capLetArr.length];
-		smaCount = new int [smaLetArr.length];
-		numCount = new int [numArr.length];
-		
-		
-		for (k = 0; k < 10; k++) {
-			if (Arrays.asList(capLetArr).contains(scanArr[k])) {
-				
-				for (x = 0; x < capLetArr.length; x++) {
-					if (scanArr[k] == capLetArr[x]) {	//입력한 것과 같은 문자의 갯수에 +1하는 것
-						capCount[x] = capCount[x] + 1;
-						break;
-					}
-				}	//어느 대문자인가?
-				
-			}	//대문자인가?
-		}	//전체 for문 끝
+		for (m =0; m<capFreq.length())
 		
 	}
 
+
+
+	public static void main(String[] args) {	//main함수가 없어서 실행이 안됐던거였어
+		//Test_Class myStr;
+		
+		//myStr = new Test_Class();
+		
+		System.out.println(inputString());
+	}
 	
-	
-	
-	
-	
-	
-}	//전체 클래스 닫는 괄호
+}
+
+/* Practice 클래스 */
+public class Practice {
+	public static void main(String[] args) {	//main함수가 없어서 실행이 안됐던거였어
+		Test_Class myStr;
+		
+		myStr = new Test_Class();
+		
+		System.out.println(Test_Class.inputString());
+		
+		System.out.println(whatType());
+	}
+}
