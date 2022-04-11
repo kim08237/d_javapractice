@@ -59,7 +59,7 @@ public class Test_Class {
 			System.out.print((97+n) + ": " + smaCount[n] + " ");
 		}
 		System.out.print("\n");
-		for (o = 0; o < 26; o++) {
+		for (o = 0; o < 10; o++) {
 			System.out.print((48+o) + ": " + numCount[o] + " ");
 		}
 		System.out.print("특수문자: " + speCount);
