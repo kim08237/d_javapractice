@@ -25,31 +25,40 @@ public class Practice1 {
 /*2번*/
 import java.util.Scanner;
 
-public class Practice2 {
+class Grade{
 	int math, science, english;
+	double average;
 	
-	public double Grade(int m, int s, int e) {
-		double average;
-		
-		average = (m+s+e)/3;
-		return average;
-		
+	double Grade(int m, int s, int e) {
+	this.math = m;
+	this.science = s;
+	this.english = e;
+	
+	
+	average = (m+s+e)/3.0;
+	return average;
 	}
+
 }
-public static void main(String[] args) {
-	Scanner oScanner;
-	
-	oScanner = new Scanner(System.in);
-	
-	System.out.println("수학, 과학, 영어 순으로 3개의 점수 입력 >> ");
-	int math = oScanner.nextInt();
-	int science = oScanner.nextInt();
-	int english = oScanner.nextInt();
-	
-	Grade me;
-	me = new Grade(math, science, english);
-	System.out.println("평균은 "+ me.average());
-	
-	oScanner.close();
+
+public class Practice1 {
+
+	public static void main(String[] args) {
+		Scanner oScanner;
+		
+		oScanner = new Scanner(System.in);
+		
+		System.out.println("수학, 과학, 영어 순으로 3개의 점수 입력 >> ");
+		int math = oScanner.nextInt();
+		int science = oScanner.nextInt();
+		int english = oScanner.nextInt();
+		
+		Grade me;
+		me = new Grade();
+		System.out.println("평균은 "+ me.Grade(math, science, english));
+		
+		oScanner.close();
+	}
+
 }
 
