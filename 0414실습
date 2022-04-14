@@ -26,21 +26,19 @@ import java.util.Scanner;
 
 class Grade{
 	int math, science, english;
-	double average;
 	
-	double Grade(int m, int s, int e) {
+	Grade(int m, int s, int e) {
 	this.math = m;
 	this.science = s;
 	this.english = e;
-	
-	
-	average = (m+s+e)/3.0;
-	return average;
 	}
-
+	
+	double average() {
+		return (math+science+english)/3.0;
+	}
 }
 
-public class Practice2 {
+public class Practice1 {
 
 	public static void main(String[] args) {
 		Scanner oScanner;
@@ -52,12 +50,12 @@ public class Practice2 {
 		int science = oScanner.nextInt();
 		int english = oScanner.nextInt();
 		
-		Grade me;
-		me = new Grade();
-		System.out.println("평균은 "+ me.Grade(math, science, english));
+		Grade me = new Grade(math, science, english);
+		System.out.println("평균은 "+ me.average());
 		
 		oScanner.close();
 	}
 
 }
 
+/*3번*/
