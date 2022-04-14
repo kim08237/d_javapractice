@@ -628,13 +628,3 @@ public class Practice {
 		System.out.println("둘레는 " + oPizza.getRound());
 	}
 }
-
-
-
-
-
-
-
-
-
-****0406 report 과제****
