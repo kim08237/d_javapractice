@@ -21,7 +21,6 @@ public class Practice1 {
 }
 
 
-
 /*2번*/
 import java.util.Scanner;
 
@@ -41,7 +40,7 @@ class Grade{
 
 }
 
-public class Practice1 {
+public class Practice2 {
 
 	public static void main(String[] args) {
 		Scanner oScanner;
