@@ -28,8 +28,8 @@ WORA = write once run anywhere
                       ㄴ이건 대신 동일패키지와 자식클래스까지 가능. default는 자식클래스 불가능
                       
 >>셤문제: static 이랑 non-static구분하는거
-  static		: 멤버 클래스당 하나 생성					
-	non-static: 멤버 객체마다 별도 존재(인스턴스 멤버). 객체 생성 시에 멤버 생성
+  	static		: 멤버 클래스당 하나 생성					클래스 로딩 시 멤버 생성	 공유x
+	non-static	: 멤버 객체마다 별도 존재(인스턴스 멤버).  객체 생성 시에 멤버 생성	공유o
 
 >>셤문제?: this랑 this() 차이점
   this는 객체 자신에 대한 레퍼런스. this()는 클래스 내의 생성자가 다른 생성자를 호출할 때 사용
