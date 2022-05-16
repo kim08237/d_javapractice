@@ -21,3 +21,8 @@ SringBuffer 클래스: 각변 크기의 문자열 저장 클래스
 
 StringTokenier: 하나의 문자열을 여러 문자열로 분리. 뷴라헐 때 사용되는 기준 문자 : 구분문자
 split은 배열로 선언되는데 stringtokenier는 별도로 바뀜
+
+배열이면 for무느는데 토크쿠
+math클래스: 모든 메소드가 static 타입
+nes 
+난수바
