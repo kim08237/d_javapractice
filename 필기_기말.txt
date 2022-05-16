@@ -24,5 +24,6 @@ split은 배열로 선언되는데 stringtokenier는 별도로 바뀜
 
 배열이면 for무느는데 토크쿠
 math클래스: 모든 메소드가 static 타입
-nes 
-난수바
+
+Calender클래스: 추상 클래스임(객체 생성할 수 없는거)
+Calender now = Calendar.getInstance();  해야 함. new~~() 오류나
