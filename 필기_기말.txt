@@ -32,6 +32,11 @@ Calender now = Calendar.getInstance();  해야 함. new~~() 오류나
 <제네릭과 컬렉션>
 -컬렉션: '객체'들의 컨테이너. 요소의 개수에 따라 크기 자동 조절. ⭕고정 크기의 배열을 다루는 어려움 해소
 컬렉션은 제네릭 기법으로 구현됨. 컬렉션의 요소는 객체만 가능. 8개의 wrapper 클래스(double, char,int 등) 사용 불가
+
 -제네릭 기법: 특정 타입만 다루지 않고 여러 종류의 타입으로 변신할 수 있도록 클래스나 메소드를 일반화. C++의 템플릿과 동일
 <E>, <K>, <V>: 타입 매개 변수. E=Element, T=Type, V=Value, K=Key
-Vector <E> 교재참고 겁나많음                                                                                         
+Vector <E> 교재참고~ 겁나많음ㅋㅋ 예제 
+
+ArrayList<ㄸ>: 객체, null 삽입 가능. 벡터와 달리 동기화 기능 없음. 다수의 스레드가 동시에 arraylist에 접근할 때 동기화x
+
+⭕객체 array, vector, arrayList 차이 알아둬야 해
